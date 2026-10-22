@@ -22,11 +22,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} min-h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+      <body className="min-h-screen bg-[#f5f6f4] font-[var(--font-geist-sans)] text-[#182b2b] antialiased">
+        <div className="min-h-screen lg:grid lg:grid-cols-[16.5rem_minmax(0,1fr)]">
+          <Navbar />
+          <main className="min-w-0 pb-24 lg:col-start-2 lg:pb-0">{children}</main>
+        </div>
       </body>
     </html>
   );

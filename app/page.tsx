@@ -1,42 +1,74 @@
 import Link from "next/link";
 
+const projects = [
+  {
+    title: "E-commerce storefront",
+    desc: "Responsive shop with cart and checkout.",
+    stack: ["Next.js", "TypeScript", "Stripe"],
+  },
+  {
+    title: "Task dashboard",
+    desc: "Drag-and-drop kanban board with real-time updates.",
+    stack: ["React", "Tailwind", "Firebase"],
+  },
+  {
+    title: "Finance tracker",
+    desc: "Charts and monthly summaries for income and expenses.",
+    stack: ["Next.js", "Recharts", "Tailwind"],
+  },
+];
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1">
-      <section className="px-4 py-20 sm:py-32 max-w-6xl mx-auto text-center">
-        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-slate-900 text-white mx-auto mb-6 text-sm font-mono font-bold">
-          TT
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">
-          Thato Thobane
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
-          Full-stack developer building accessible, performant web applications
-          with React, Next.js, TypeScript and Tailwind CSS.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/projects"
-            className="px-8 py-3 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-colors"
-          >
-            View projects
-          </Link>
-          <Link
-            href="/contact"
-            className="px-8 py-3 border border-slate-300 rounded-lg font-medium hover:bg-slate-100 transition-colors"
-          >
-            Get in touch
-          </Link>
+    <div className="mx-auto w-full max-w-[74rem] px-4 py-5 sm:px-6 sm:py-8 lg:px-[clamp(2rem,5vw,5rem)] lg:py-12">
+      <section className="relative overflow-hidden rounded-3xl border border-[#dfe9e5] bg-[radial-gradient(ellipse_at_90%_5%,rgba(120,205,183,0.21),transparent_38%),linear-gradient(135deg,#fff_0%,#f2f8f5_100%)] p-6 sm:p-12 lg:p-16">
+        <div className="relative z-10 max-w-2xl">
+          <p className="m-0 inline-flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#1b766e]">
+            <span className="h-[0.45rem] w-[0.45rem] rounded-full bg-[#46a895]" />
+            Full-stack developer · Johannesburg
+          </p>
+          <h1 className="mt-4 text-[clamp(2.4rem,10vw,4.5rem)] font-bold leading-[1.04] tracking-[-0.065em] text-[#182b2b]">
+            Thato
+            <br />
+            <span className="text-[#1b766e]">Thobane.</span>
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-7 text-[#6d7c7a]">
+            I build accessible, thoughtful web experiences that help turn good
+            ideas into useful products.
+          </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/projects"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#173b39] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-px hover:bg-[#245a54]"
+            >
+              Explore my work <span aria-hidden="true">↗</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#e1e8e5] bg-white/70 px-5 py-3 text-sm font-semibold text-[#182b2b] transition hover:border-[#b8cec7] hover:bg-white"
+            >
+              Get in touch
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="px-4 py-20 border-y border-slate-200 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10">About me</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4 text-slate-600 leading-relaxed">
+      <section className="mt-10 lg:mt-14">
+        <div className="mb-4 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="m-0 text-2xl font-bold tracking-[-0.04em] text-[#182b2b]">
+              A little about me
+            </h2>
+            <p className="mt-1.5 text-sm leading-6 text-[#6d7c7a]">
+              Curious by nature, focused on making the web work better.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-[minmax(0,1.4fr)_minmax(14rem,0.8fr)] sm:gap-5">
+          <div className="rounded-2xl border border-[#e1e8e5] bg-white p-5 text-[0.93rem] leading-7 text-[#6d7c7a] sm:p-7">
             <p>
-              I am a full-stack developer based in Johannesburg, South Africa. I
-              enjoy turning ideas into products that people can actually use.
+              I am a full-stack developer based in Johannesburg, South Africa.
+              I enjoy turning ideas into products that people can actually use.
             </p>
             <p>
               My stack is Next.js, React, TypeScript and Tailwind CSS, and I am
@@ -44,42 +76,49 @@ export default function Home() {
               ship quality code.
             </p>
           </div>
-          <div className="flex h-80 w-full items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 text-slate-400 text-sm">
-            [Portrait photo placeholder]
+          <div className="flex min-h-52 items-center justify-center overflow-hidden rounded-2xl border border-dashed border-[#c9d8d3] bg-[radial-gradient(ellipse_at_50%_30%,rgba(141,201,186,0.23),transparent_55%),#edf3f0] text-sm text-[#78908a]">
+            Portrait photo
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20 max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-bold">Featured work</h2>
+      <section className="mt-10 lg:mt-14">
+        <div className="mb-4 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="m-0 text-2xl font-bold tracking-[-0.04em] text-[#182b2b]">
+              Selected work
+            </h2>
+            <p className="mt-1.5 text-sm leading-6 text-[#6d7c7a]">
+              A few things I have been exploring and building.
+            </p>
+          </div>
           <Link
             href="/projects"
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 underline-offset-4 hover:underline"
+            className="shrink-0 text-sm font-semibold text-[#1b766e] hover:underline hover:underline-offset-4"
           >
-            View all →
+            All projects <span aria-hidden="true">↗</span>
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "E-commerce storefront", desc: "Responsive shop with cart and checkout.", stack: ["Next.js", "TypeScript", "Stripe"] },
-            { title: "Task dashboard", desc: "Drag-and-drop kanban board with real-time updates.", stack: ["React", "Tailwind", "Firebase"] },
-            { title: "Finance tracker", desc: "Charts and monthly summaries for income and expenses.", stack: ["Next.js", "Recharts", "Tailwind"] },
-          ].map((project) => (
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          {projects.map((project, index) => (
             <article
               key={project.title}
-              className="rounded-xl p-6 border border-slate-200 flex flex-col hover:shadow-md transition-shadow"
+              className="flex min-w-0 flex-col rounded-2xl border border-[#e1e8e5] bg-white p-3 transition hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(24,56,51,0.08)]"
             >
-              <div className="h-48 w-full rounded-lg border border-slate-200 bg-slate-100 mb-4 flex items-center justify-center text-slate-400 text-sm">
-                [{project.title} image]
+              <div className="mb-4 flex min-h-44 items-center justify-center rounded-xl bg-[radial-gradient(circle_at_75%_25%,rgba(95,168,148,0.21),transparent_30%),linear-gradient(135deg,#e8f0ec,#f4f7f4)] text-xs text-[#78908a]">
+                <span>0{index + 1} &nbsp; / &nbsp; PROJECT</span>
               </div>
-              <h3 className="text-lg font-bold mb-2">{project.title}</h3>
-              <p className="text-sm text-slate-600 mb-4 flex-1">{project.desc}</p>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <h3 className="mb-1.5 text-base font-bold tracking-tight text-[#182b2b]">
+                {project.title}
+              </h3>
+              <p className="mb-4 text-sm leading-6 text-[#6d7c7a]">
+                {project.desc}
+              </p>
+              <div className="mt-auto flex flex-wrap gap-2">
                 {project.stack.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 text-[10px] border border-slate-300 rounded text-slate-500"
+                    className="rounded-full border border-[#dce8e3] bg-[#f7faf8] px-2 py-1 text-[0.68rem] font-semibold text-[#58736c]"
                   >
                     {tag}
                   </span>

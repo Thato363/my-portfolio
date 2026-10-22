@@ -1,69 +1,110 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 
 const links = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", icon: "home" },
+  { name: "Projects", href: "/projects", icon: "grid" },
+  { name: "Contact", href: "/contact", icon: "mail" },
 ];
 
-export function Navbar() {
-  const [open, setOpen] = useState(false);
+function NavIcon({ name }: { name: string }) {
+  const paths: Record<string, ReactNode> = {
+    home: (
+      <>
+        <path d="m3 10 9-7 9 7" />
+        <path d="M5 9v11h14V9M9 20v-6h6v6" />
+      </>
+    ),
+    grid: (
+      <>
+        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+      </>
+    ),
+    mail: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+  };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link
-            href="/"
-            className="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900"
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 text-white text-sm font-mono">
-              TT
-            </span>
-            <span>Portfolio</span>
-          </Link>
+    <svg
+      aria-hidden="true"
+      className="h-5 w-5 shrink-0 lg:h-[1.1rem] lg:w-[1.1rem]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {paths[name]}
+    </svg>
+  );
+}
 
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-slate-900 transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+export function Navbar() {
+  const pathname = usePathname();
 
-          <button
-            className="md:hidden inline-flex items-center justify-center p-2 text-slate-600 hover:bg-slate-100 rounded-md"
-            onClick={() => setOpen((prev) => !prev)}
-            aria-label="Open menu"
-          >
-            <span className="block h-[2px] w-5 bg-current"></span>
-            <span className="block h-[2px] w-5 bg-current mt-1"></span>
-            <span className="block h-[2px] w-5 bg-current mt-1"></span>
-          </button>
-        </div>
+  return (
+    <aside className="fixed inset-x-0 bottom-0 z-50 flex min-h-16 items-stretch justify-center border-t border-white/10 bg-[#173b39] px-3 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-10px_30px_rgba(17,42,40,0.12)] lg:inset-y-0 lg:left-0 lg:right-auto lg:h-screen lg:min-h-screen lg:w-[16.5rem] lg:flex-col lg:justify-start lg:border-r lg:border-t-0 lg:px-5 lg:py-8 lg:shadow-[8px_0_30px_rgba(17,42,40,0.07)]">
+      <Link
+        href="/"
+        className="mb-12 hidden items-center gap-3 text-white lg:mb-12 lg:ml-1 lg:flex"
+      >
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 font-mono text-sm font-bold text-[#b9eddb]">
+          TT
+        </span>
+        <span>
+          <strong className="block text-sm font-bold">Thato Thobane</strong>
+          <span className="mt-1 block text-[0.68rem] text-[#a4bdb7]">
+            Developer portfolio
+          </span>
+        </span>
+      </Link>
 
-        {open && (
-          <div className="md:hidden border-t border-slate-200 bg-slate-50 py-4 space-y-2">
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-md"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        )}
+      <p className="mb-3 ml-3 hidden text-[0.64rem] font-bold tracking-[0.13em] text-[#829f98] lg:block">
+        MENU
+      </p>
+      <nav
+        aria-label="Main navigation"
+        className="grid w-full max-w-md grid-cols-3 gap-1.5 lg:flex lg:max-w-none lg:flex-col lg:gap-1"
+      >
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+
+          return (
+            <Link
+              key={link.name}
+              href={link.href}
+              aria-current={isActive ? "page" : undefined}
+              className={`relative flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[0.68rem] font-semibold text-[#b6ceca] transition-colors hover:text-white lg:min-h-12 lg:flex-row lg:justify-start lg:gap-3 lg:rounded-lg lg:px-3 lg:text-[0.84rem] ${
+                isActive
+                  ? "bg-white/10 text-white"
+                  : ""
+              }`}
+            >
+              <NavIcon name={link.icon} />
+              <span>{link.name}</span>
+              {isActive && (
+                <span className="absolute top-0 h-0.5 w-5 rounded-full bg-[#75d4bd] lg:right-3 lg:top-1/2 lg:h-1.5 lg:w-1.5 lg:-translate-y-1/2 lg:rounded-full" />
+              )}
+            </Link>
+          );
+        })}
+      </nav>
+
+      <div className="mt-auto hidden items-center gap-2 border-t border-white/10 pt-4 text-[0.68rem] text-[#afc5bf] lg:flex">
+        <span className="h-2 w-2 rounded-full bg-[#70d3a5] shadow-[0_0_0_3px_rgba(112,211,165,0.13)]" />
+        <span>Available for opportunities</span>
       </div>
-    </nav>
+    </aside>
   );
 }
