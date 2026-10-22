@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Wireframe — Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .wireframe-box { border: 1px dashed #9ca3af; background: #f3f4f6; }
+      .wireframe-img { border: 1px dashed #9ca3af; background: #e5e7eb; color: #6b7280; font-size: 0.75rem; text-align: center; padding-top: 35%; }
+      .wireframe-text { border: 1px dashed #cbd5e1; background: #ffffff; height: 1.2rem; border-radius: 4px; }
+      .banner { background: #f59e0b; color: #fff; font-weight: bold; text-align: center; font-size: 0.75rem; padding: 0.25rem; }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="banner">WIREFRAME — Projects page (low fidelity, layout only)</div>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+            <div class="wireframe-box w-10 h-10 rounded"></div>
+            <span>Portfolio</span>
+          </div>
+          <div class="hidden md:flex gap-6 text-sm font-medium">
+            <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+            <a href="/projects" class="text-gray-900">Projects</a>
+            <a href="/contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+          </div>
+          <div class="wireframe-box w-10 h-10 rounded-full md:hidden"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page header -->
+    <header class="py-16 px-4 max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Projects</h1>
+      <p class="mt-4 text-lg text-gray-600 wireframe-text" style="height: 2rem; max-width: 32rem; margin: 0 auto;">A selection of projects I have built, with links to live demos and source code.</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="px-4 max-w-6xl mx-auto mb-12">
+      <div class="flex gap-2 justify-center">
+        <button class="px-4 py-2 bg-black text-white rounded-full text-sm">All</button>
+        <button class="px-4 py-2 border border-gray-300 rounded-full text-sm text-gray-600 hover:bg-gray-100">Web</button>
+        <button class="px-4 py-2 border border-gray-300 rounded-full text-sm text-gray-600 hover:bg-gray-100">Mobile</button>
+      </div>
+    </div>
+
+    <!-- Project grid -->
+    <section class="px-4 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <article class="wireframe-box rounded-xl p-6 flex flex-col h-full">
+          <div class="wireframe-img h-56 rounded-lg mb-4"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">E-commerce storefront</h3>
+            <p class="text-sm text-gray-600 mb-4 wireframe-text" style="height: 4rem;">Next.js, TypeScript, Stripe. Responsive shop with cart and checkout.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">Next.js</span>
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">TypeScript</span>
+            </div>
+            <a href="#" class="w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-100">View case study</a>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="wireframe-box rounded-xl p-6 flex flex-col h-full">
+          <div class="wireframe-img h-56 rounded-lg mb-4"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Task management dashboard</h3>
+            <p class="text-sm text-gray-600 mb-4 wireframe-text" style="height: 4rem;">Drag-and-drop kanban board with real-time updates.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">React</span>
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">Tailwind</span>
+            </div>
+            <a href="#" class="w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-100">View case study</a>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="wireframe-box rounded-xl p-6 flex flex-col h-full">
+          <div class="wireframe-img h-56 rounded-lg mb-4"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Personal finance tracker</h3>
+            <p class="text-sm text-gray-600 mb-4 wireframe-text" style="height: 4rem;">Charts and monthly summaries for income and expenses.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">Next.js</span>
+              <span class="px-2 py-1 text-[10px] border border-gray-300 rounded text-gray-500">Recharts</span>
+            </div>
+            <a href="#" class="w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-100">View case study</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-gray-200 text-center text-sm text-gray-500">
+      <p>© 2026 Portfolio. Built with Next.js + Tailwind.</p>
+    </footer>
+  </body>
+</html>

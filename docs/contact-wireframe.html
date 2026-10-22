@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Wireframe — Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .wireframe-box { border: 1px dashed #9ca3af; background: #f3f4f6; }
+      .wireframe-img { border: 1px dashed #9ca3af; background: #e5e7eb; color: #6b7280; font-size: 0.75rem; text-align: center; padding-top: 30%; }
+      .wireframe-text { border: 1px dashed #cbd5e1; background: #ffffff; height: 1.2rem; border-radius: 4px; }
+      .banner { background: #f59e0b; color: #fff; font-weight: bold; text-align: center; font-size: 0.75rem; padding: 0.25rem; }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="banner">WIREFRAME — Contact page (low fidelity, layout only)</div>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+            <div class="wireframe-box w-10 h-10 rounded"></div>
+            <span>Portfolio</span>
+          </div>
+          <div class="hidden md:flex gap-6 text-sm font-medium">
+            <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+            <a href="/projects" class="text-gray-600 hover:text-gray-900">Projects</a>
+            <a href="/contact" class="text-gray-900">Contact</a>
+          </div>
+          <div class="wireframe-box w-10 h-10 rounded-full md:hidden"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page header -->
+    <header class="py-16 px-4 max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Get in touch</h1>
+      <p class="mt-4 text-lg text-gray-600 wireframe-text" style="height: 2rem; max-width: 32rem; margin: 0 auto;">Available for freelance work and full-time opportunities.</p>
+    </header>
+
+    <!-- Layout -->
+    <section class="py-20 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <!-- Contact form -->
+      <div class="space-y-6">
+        <div class="wireframe-box rounded-xl p-8">
+          <h2 class="text-2xl font-bold mb-6">Send a message</h2>
+          <form class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-700">Name</label>
+                <input type="text" class="border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-700">Email</label>
+                <input type="email" class="border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-sm font-medium text-gray-700">Message</label>
+              <textarea rows="5" class="border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+            </div>
+            <button class="py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800">Send message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="space-y-8">
+        <div class="wireframe-box rounded-xl p-8 h-[300px]">
+          <h2 class="text-2xl font-bold mb-4">Let's connect</h2>
+          <p class="text-gray-600 mb-6 wireframe-text" style="height: 3rem;">Feel free to reach out by email or find me on LinkedIn and GitHub.</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="wireframe-box w-8 h-8 rounded flex-shrink-0"></div>
+              <div>
+                <div class="text-sm font-medium text-gray-900 wireframe-text" style="height: 1rem; width: 10rem;">hello@example.com</div>
+                <div class="text-sm text-gray-500 wireframe-text" style="height: 1rem; width: 8rem;">thato@example.com</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="wireframe-box w-8 h-8 rounded flex-shrink-0"></div>
+              <div>
+                <div class="text-sm font-medium text-gray-900 wireframe-text" style="height: 1rem; width: 6rem;">LinkedIn</div>
+                <div class="text-sm text-gray-500 wireframe-text" style="height: 1rem; width: 12rem;">linkedin.com/in/thatothobane</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="wireframe-box w-8 h-8 rounded flex-shrink-0"></div>
+              <div>
+                <div class="text-sm font-medium text-gray-900 wireframe-text" style="height: 1rem; width: 6rem;">GitHub</div>
+                <div class="text-sm text-gray-500 wireframe-text" style="height: 1rem; width: 14rem;">github.com/Thato363</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wireframe-img h-96 rounded-2xl"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-gray-200 text-center text-sm text-gray-500">
+      <p>© 2026 Portfolio. Built with Next.js + Tailwind.</p>
+    </footer>
+  </body>
+</html>
