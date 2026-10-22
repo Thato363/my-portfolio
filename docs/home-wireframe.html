@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Wireframe — Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .wireframe-box { border: 1px dashed #9ca3af; background: #f3f4f6; }
+      .wireframe-img { border: 1px dashed #9ca3af; background: #e5e7eb; color: #6b7280; font-size: 0.75rem; text-align: center; padding-top: 40%; }
+      .wireframe-text { border: 1px dashed #cbd5e1; background: #ffffff; height: 1.2rem; border-radius: 4px; }
+      .banner { background: #f59e0b; color: #fff; font-weight: bold; text-align: center; font-size: 0.75rem; padding: 0.25rem; }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="banner">WIREFRAME — Home page (low fidelity, layout only)</div>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+            <div class="wireframe-box w-10 h-10 rounded"></div>
+            <span>Portfolio</span>
+          </div>
+          <div class="hidden md:flex gap-6 text-sm font-medium">
+            <a href="#" class="text-gray-900">Home</a>
+            <a href="/projects" class="text-gray-600 hover:text-gray-900">Projects</a>
+            <a href="/contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+          </div>
+          <div class="wireframe-box w-10 h-10 rounded-full md:hidden"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="py-20 px-4 max-w-6xl mx-auto text-center">
+      <div class="wireframe-img h-64 rounded-xl mx-auto"></div>
+      <h1 class="mt-8 text-4xl md:text-6xl font-bold tracking-tight">Full-Stack Developer</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 wireframe-text" style="height: 3rem;">I build accessible, performant web applications with Next.js, React and TypeScript.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/projects" class="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800">View Projects</a>
+        <a href="/contact" class="px-8 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-100">Contact</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-20 px-4 border-y border-gray-200">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-4">About me</h2>
+          <div class="space-y-3 text-gray-600 leading-relaxed">
+            <div class="wireframe-text h-5 w-3/4"></div>
+            <div class="wireframe-text h-5 w-5/6"></div>
+            <div class="wireframe-text h-5 w-3/5"></div>
+            <div class="wireframe-text h-5 w-4/5"></div>
+          </div>
+        </div>
+        <div class="wireframe-img h-80 rounded-2xl mx-auto"></div>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section class="py-20 px-4 max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Featured work</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="wireframe-box h-96 rounded-xl p-4 flex flex-col">
+          <div class="wireframe-img h-48 rounded-lg mb-4"></div>
+          <h3 class="text-lg font-bold mb-2">Project One</h3>
+          <p class="text-sm text-gray-600 flex-1">Brief description of the project goes here.</p>
+          <a href="#" class="mt-4 text-sm font-medium text-blue-600 hover:underline">Case study →</a>
+        </div>
+        <div class="wireframe-box h-96 rounded-xl p-4 flex flex-col">
+          <div class="wireframe-img h-48 rounded-lg mb-4"></div>
+          <h3 class="text-lg font-bold mb-2">Project Two</h3>
+          <p class="text-sm text-gray-600 flex-1">Brief description of the project goes here.</p>
+          <a href="#" class="mt-4 text-sm font-medium text-blue-600 hover:underline">Case study →</a>
+        </div>
+        <div class="wireframe-box h-96 rounded-xl p-4 flex flex-col">
+          <div class="wireframe-img h-48 rounded-lg mb-4"></div>
+          <h3 class="text-lg font-bold mb-2">Project Three</h3>
+          <p class="text-sm text-gray-600 flex-1">Brief description of the project goes here.</p>
+          <a href="#" class="mt-4 text-sm font-medium text-blue-600 hover:underline">Case study →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-gray-200 text-center text-sm text-gray-500">
+      <p>© 2026 Portfolio. Built with Next.js + Tailwind.</p>
+    </footer>
+  </body>
+</html>
