@@ -1,6 +1,6 @@
 ﻿# Thato Thobane — Portfolio
 
-**Live URL:** [https://my-portfolio.vercel.app](https://my-portfolio.vercel.app) *(updated after Vercel deployment)*
+**Live URL:** [https://my-portfolio-amber-theta-53.vercel.app](https://my-portfolio-amber-theta-53.vercel.app)
 
 ## Who this site is for
 
