@@ -19,9 +19,9 @@ export default function LoginPage() {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         const { data: user } = await supabase
-          .from("admin_users")
+          .from("admin_user")
           .select("role")
-          .eq("id", session.user.id)
+          .eq("email", session.user.email ?? "")
           .single();
 
         if (user?.role === "employer") {
@@ -61,15 +61,19 @@ export default function LoginPage() {
         if (authError) throw authError;
 
         if (data.user) {
-          const { error: upsertError } = await supabase
-            .from("admin_users")
-            .upsert({
-              id: data.user.id,
-              email: data.user.email!,
-              role: "admin",
-            }, { onConflict: "id" });
+          const { data: existingAdmin, error: adminLookupError } = await supabase
+            .from("admin_user")
+            .select("email")
+            .eq("email", data.user.email!)
+            .maybeSingle();
 
-          if (upsertError) throw upsertError;
+          if (adminLookupError) throw adminLookupError;
+          if (!existingAdmin) {
+            const { error: insertError } = await supabase
+              .from("admin_user")
+              .insert({ email: data.user.email!, role: "admin" });
+            if (insertError) throw insertError;
+          }
 
           await logAuditEvent("login", "admin", data.user.id);
 

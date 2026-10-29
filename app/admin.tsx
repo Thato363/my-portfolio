@@ -19,9 +19,9 @@ export default function AdminDashboard() {
       }
       const userRole = session?.user?.id 
         ? (await supabase
-            .from("admin_users")
+            .from("admin_user")
             .select("role")
-            .eq("id", session.user.id)
+            .eq("email", session.user.email ?? "")
             .single()).data?.role 
         : "anonymous";
       

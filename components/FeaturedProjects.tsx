@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase, supabaseConfigError, type Project } from "@/lib/supabase";
+import {
+  placeholderProjectTitles,
+  supabase,
+  supabaseConfigError,
+  type Project,
+} from "@/lib/supabase";
 
 export default function FeaturedProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -23,7 +28,7 @@ export default function FeaturedProjects() {
           supabase
             .from("projects")
             .select("*")
-            .order("created_at", { ascending: true })
+            .order("sort_order", { ascending: true })
             .limit(3),
           new Promise<never>((_, reject) =>
             setTimeout(() => reject(new Error("The project database request timed out.")), 10000)
@@ -32,6 +37,14 @@ export default function FeaturedProjects() {
         if (cancelled) return;
         if (result.error) {
           setError(result.error.message);
+          setProjects([]);
+        } else if (
+          result.data?.length &&
+          result.data.every((project) => placeholderProjectTitles.has(project.title))
+        ) {
+          setError(
+            "Supabase is connected, but the database still contains placeholder projects. Run supabase/projects.sql in the Supabase SQL Editor."
+          );
           setProjects([]);
         } else {
           setProjects((result.data as Project[]) ?? []);
@@ -79,7 +92,18 @@ export default function FeaturedProjects() {
             <span>0{index + 1} &nbsp; / &nbsp; PROJECT</span>
           </div>
           <h3 className="mb-1.5 text-base font-bold tracking-tight text-[#182b2b]">
-            {project.title}
+            {project.repo_url ? (
+              <a
+                href={project.repo_url}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-[#1b766e] hover:underline"
+              >
+                {project.title} ↗
+              </a>
+            ) : (
+              project.title
+            )}
           </h3>
           <p className="mb-4 text-sm leading-6 text-[#6d7c7a]">
             {project.description}
@@ -112,7 +136,7 @@ export default function FeaturedProjects() {
                 rel="noreferrer"
                 className="text-[#1b766e] hover:underline"
               >
-                Source code ↗
+                View repository on GitHub ↗
               </a>
             )}
           </div>

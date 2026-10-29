@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://my-portfolio-amber-theta-53.vercel.app";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ["/", "/projects", "/skills", "/contact", "/cv"].map((path) => ({

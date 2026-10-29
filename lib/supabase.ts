@@ -29,6 +29,12 @@ export const supabaseConfigError =
     ? "Supabase environment variables are missing. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in the deployment settings."
     : null;
 
+export const placeholderProjectTitles = new Set([
+  "E-commerce storefront",
+  "Task management dashboard",
+  "Personal finance tracker",
+]);
+
 export const supabase = createClient(
   supabaseUrl ?? "https://example.invalid",
   supabaseAnonKey ?? "missing-anon-key"

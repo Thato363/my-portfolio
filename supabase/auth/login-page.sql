@@ -1,7 +1,6 @@
--- Create admin users table
-create table if not exists public.admin_users (
-  id uuid references auth.users on delete cascade primary key,
-  email text not null,
+-- Create the admin table used by the application.
+create table if not exists public.admin_user (
+  email text primary key,
   role text not null default 'admin' check (role in ('admin', 'employer')),
   created_at timestamp with time zone default timezone('utc'::text, now()),
   last_login_at timestamp with time zone
@@ -19,14 +18,14 @@ create table if not exists public.audit_log (
 );
 
 -- Enable RLS
-alter table public.admin_users enable row level security;
+alter table public.admin_user enable row level security;
 alter table public.audit_log enable row level security;
 
--- Create policies for admin_users
-create policy if not exists "Allow read access for authenticated users" on public.admin_users
+-- Create policies for admin_user
+create policy if not exists "Allow read access for authenticated users" on public.admin_user
   for select to authenticated using (true);
 
-create policy if not exists "Allow insert for service role" on public.admin_users
+create policy if not exists "Allow insert for service role" on public.admin_user
   for insert with check (true);
 
 -- Create policies for audit_log

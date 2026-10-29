@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Thato Thobane — Developer Portfolio",
   description: "Portfolio of Thato Thobane, full-stack developer. React, Next.js, TypeScript and Tailwind CSS.",
+  openGraph: {
+    title: "Thato Thobane — Developer Portfolio",
+    description: "Portfolio of Thato Thobane, full-stack developer.",
+    url: siteUrl,
+    siteName: "Thato Thobane Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
