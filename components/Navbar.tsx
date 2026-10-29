@@ -6,10 +6,11 @@ import type { ReactNode } from "react";
 
 const links = [
   { name: "About", href: "/", icon: "home" },
-  { name: "Projects", href: "/projects", icon: "grid" },
   { name: "Skills", href: "/skills", icon: "sparkles" },
+  { name: "Projects", href: "/projects", icon: "grid" },
   { name: "Contact", href: "/contact", icon: "mail" },
   { name: "CV", href: "/cv", icon: "file" },
+  { name: "Login", href: "/login", icon: "login" },
 ];
 
 function NavIcon({ name }: { name: string }) {
@@ -44,6 +45,12 @@ function NavIcon({ name }: { name: string }) {
       <>
         <path d="M6 3h8l4 4v14H6z" />
         <path d="M14 3v5h5M9 13h6M9 17h6" />
+      </>
+    ),
+    login: (
+      <>
+        <path d="M10 5H5v14h5" />
+        <path d="m14 8 4 4-4 4M9 12h9" />
       </>
     ),
   };
@@ -89,7 +96,7 @@ export function Navbar() {
       </p>
       <nav
         aria-label="Main navigation"
-        className="grid w-full max-w-md grid-cols-5 gap-1 lg:flex lg:max-w-none lg:flex-col lg:gap-1"
+        className="grid w-full max-w-md grid-cols-6 gap-1 lg:flex lg:max-w-none lg:flex-col lg:gap-1"
       >
         {links.map((link) => {
           const isActive = pathname === link.href;
