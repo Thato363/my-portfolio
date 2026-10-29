@@ -9,6 +9,9 @@ create table if not exists public.contact_messages (
 
 alter table public.contact_messages enable row level security;
 
+grant insert on table public.contact_messages to anon, authenticated;
+grant select on table public.contact_messages to authenticated;
+
 drop policy if exists "Anyone can submit contact messages" on public.contact_messages;
 create policy "Anyone can submit contact messages"
   on public.contact_messages for insert to anon, authenticated

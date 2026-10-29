@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { supabase, supabaseConfigError } from "@/lib/supabase";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -10,6 +10,12 @@ export default function ContactForm() {
   async function submit(formData: FormData) {
     setStatus("sending");
     setMessage("");
+
+    if (supabaseConfigError) {
+      setStatus("error");
+      setMessage(supabaseConfigError);
+      return;
+    }
 
     if (formData.get("website")) {
       setStatus("success");

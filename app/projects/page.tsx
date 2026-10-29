@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase, type Project } from "@/lib/supabase";
+import { supabase, supabaseConfigError, type Project } from "@/lib/supabase";
 
 const filters = ["All work", "Web", "Mobile"] as const;
 type ProjectFilter = (typeof filters)[number];
@@ -17,16 +17,33 @@ export default function Projects() {
     async function load() {
       setLoading(true);
       setError(null);
-      const { data, error } = await supabase
-        .from("projects")
-        .select("*")
-        .order("created_at", { ascending: true });
-      if (cancelled) return;
-      if (error) {
-        setError(error.message);
+      if (supabaseConfigError) {
+        setError(supabaseConfigError);
+        setLoading(false);
+        return;
+      }
+      try {
+        const result = await Promise.race([
+          supabase
+            .from("projects")
+            .select("*")
+            .order("created_at", { ascending: true }),
+          new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error("The project database request timed out.")), 10000)
+          ),
+        ]);
+        if (cancelled) return;
+        if (result.error) {
+          setError(result.error.message);
+          setProjects([]);
+        } else {
+          setProjects((result.data as Project[]) ?? []);
+        }
+      } catch (loadError) {
+        if (cancelled) return;
+        console.error("Projects request failed:", loadError);
+        setError(loadError instanceof Error ? loadError.message : "Could not connect to the project database.");
         setProjects([]);
-      } else {
-        setProjects((data as Project[]) ?? []);
       }
       setLoading(false);
     }
