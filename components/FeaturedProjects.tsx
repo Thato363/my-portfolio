@@ -77,9 +77,30 @@ export default function FeaturedProjects() {
               </span>
             ))}
           </div>
+          <div className="mt-4 flex gap-3 text-xs font-semibold">
+            {project.live_url && (
+              <a
+                href={project.live_url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#1b766e] hover:underline"
+              >
+                Live demo ↗
+              </a>
+            )}
+            {project.repo_url && (
+              <a
+                href={project.repo_url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#1b766e] hover:underline"
+              >
+                Source code ↗
+              </a>
+            )}
+          </div>
         </article>
       ))}
     </div>
   );
 }
-

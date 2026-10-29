@@ -8,6 +8,17 @@ export type Project = {
   status: string | null;
   category: string | null;
   created_at: string;
+  slug: string | null;
+  tagline: string | null;
+  repo_url: string | null;
+  live_url: string | null;
+  problem: string | null;
+  role: string | null;
+  next_steps: string | null;
+  screenshots: string[] | null;
+  featured: boolean;
+  published: boolean;
+  sort_order: number;
 };
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

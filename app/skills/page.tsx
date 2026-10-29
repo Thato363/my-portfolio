@@ -2,17 +2,35 @@ const skillGroups = [
   {
     title: "Frontend",
     description: "Building polished, responsive interfaces with a focus on clarity and accessibility.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML & CSS"],
+    skills: [
+      { name: "React", href: "https://github.com/Thato363/my-portfolio" },
+      { name: "Next.js", href: "https://github.com/Thato363/nextjs-dashboard" },
+      { name: "TypeScript", href: "https://github.com/Thato363/my-portfolio" },
+      { name: "Tailwind CSS", href: "https://github.com/Thato363/my-portfolio" },
+      { name: "HTML & CSS", href: "https://github.com/Thato363/nasa-exploration" },
+    ],
   },
   {
     title: "Backend",
     description: "Designing dependable APIs and data-driven features that support real products.",
-    skills: ["Node.js", "REST APIs", "Supabase", "PostgreSQL", "Authentication"],
+    skills: [
+      { name: "Node.js", href: "https://github.com/Thato363/nextjs-dashboard" },
+      { name: "REST APIs", href: "https://github.com/Thato363/API-Geolocation" },
+      { name: "Supabase", href: "https://github.com/Thato363/nextjs-dashboard" },
+      { name: "PostgreSQL", href: "https://github.com/Thato363/nextjs-dashboard" },
+      { name: "Authentication", href: "https://github.com/Thato363/nextjs-dashboard" },
+    ],
   },
   {
     title: "Workflow",
     description: "Working thoughtfully from the first idea through delivery and iteration.",
-    skills: ["Git & GitHub", "Responsive design", "Component systems", "Testing", "Deployment"],
+    skills: [
+      { name: "Git & GitHub", href: "https://github.com/Thato363" },
+      { name: "Responsive design", href: "https://github.com/Thato363/my-portfolio" },
+      { name: "Component systems", href: "https://github.com/Thato363/my-portfolio" },
+      { name: "Testing", href: "https://github.com/Thato363/nextjs-dashboard" },
+      { name: "Deployment", href: "https://my-portfolio-amber-theta-53.vercel.app" },
+    ],
   },
 ];
 
@@ -46,12 +64,15 @@ export default function Skills() {
             <p className="mt-2 text-sm leading-6 text-[#6d7c7a]">{group.description}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-[#dce8e3] bg-[#f7faf8] px-3 py-1.5 text-xs font-semibold text-[#58736c]"
-                >
-                  {skill}
-                </span>
+              <a
+                key={skill.name}
+                href={skill.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-[#dce8e3] bg-[#f7faf8] px-3 py-1.5 text-xs font-semibold text-[#58736c] hover:border-[#1b766e] hover:text-[#1b766e]"
+              >
+                {skill.name} ↗
+              </a>
               ))}
             </div>
           </section>

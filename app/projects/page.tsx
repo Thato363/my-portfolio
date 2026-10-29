@@ -52,8 +52,8 @@ export default function Projects() {
           Projects
         </h1>
         <p className="mt-4 max-w-xl text-base leading-7 text-[#6d7c7a]">
-          A selection of projects I have built. Live demos and source code links
-          coming soon.
+          A selection of projects I have built, with links to the live demos and
+          source code.
         </p>
       </header>
 
@@ -112,6 +112,28 @@ export default function Projects() {
                   <p className="mb-4 text-sm leading-6 text-[#6d7c7a]">
                     {project.description}
                   </p>
+                  {(project.problem || project.role || project.next_steps) && (
+                    <dl className="mb-4 space-y-2 border-l-2 border-[#dce8e3] pl-3 text-xs leading-5 text-[#6d7c7a]">
+                      {project.problem && (
+                        <div>
+                          <dt className="font-semibold text-[#405653]">Problem</dt>
+                          <dd>{project.problem}</dd>
+                        </div>
+                      )}
+                      {project.role && (
+                        <div>
+                          <dt className="font-semibold text-[#405653]">My role</dt>
+                          <dd>{project.role}</dd>
+                        </div>
+                      )}
+                      {project.next_steps && (
+                        <div>
+                          <dt className="font-semibold text-[#405653]">Next</dt>
+                          <dd>{project.next_steps}</dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
                   <div className="mt-auto flex flex-wrap gap-2">
                     {(project.stack ?? []).map((tag) => (
                       <span
@@ -125,12 +147,31 @@ export default function Projects() {
                   <span className="mt-4 text-xs font-semibold text-[#778984]">
                     {project.status}
                   </span>
+                  <div className="mt-4 flex gap-3 text-xs font-semibold">
+                    {project.live_url && (
+                      <a
+                        href={project.live_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[#1b766e] hover:underline"
+                      >
+                        Live demo ↗
+                      </a>
+                    )}
+                    {project.repo_url && (
+                      <a
+                        href={project.repo_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[#1b766e] hover:underline"
+                      >
+                        Source code ↗
+                      </a>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
-            <p className="mt-6 text-center text-sm text-[#6d7c7a]">
-              More projects coming soon.
-            </p>
           </>
         )}
       </section>

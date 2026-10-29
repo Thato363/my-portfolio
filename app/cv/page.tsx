@@ -1,4 +1,10 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CV | Thato Thobane",
+  description: "Download the CV of Thato Thobane, a Johannesburg-based full-stack developer.",
+};
 
 export default function CV() {
   return (
