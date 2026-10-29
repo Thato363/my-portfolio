@@ -1,0 +1,19 @@
+THATO THOBANE
+Full-stack Developer
+Johannesburg, South Africa
+
+PROFILE
+Full-stack developer building accessible, thoughtful web experiences that turn good ideas into useful products.
+
+TECHNICAL SKILLS
+React, Next.js, TypeScript, Tailwind CSS, HTML, CSS, Node.js, REST APIs,
+Supabase, PostgreSQL, Git, GitHub, responsive design, component systems,
+testing, and deployment.
+
+PORTFOLIO
+Selected projects and current work are available at the portfolio website.
+
+CONTACT
+Email: thato@example.com
+GitHub: github.com/Thato363
+LinkedIn: linkedin.com/in/thatothobane

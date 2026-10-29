@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 const links = [
-  { name: "Home", href: "/", icon: "home" },
+  { name: "About", href: "/", icon: "home" },
   { name: "Projects", href: "/projects", icon: "grid" },
+  { name: "Skills", href: "/skills", icon: "sparkles" },
   { name: "Contact", href: "/contact", icon: "mail" },
+  { name: "CV", href: "/cv", icon: "file" },
 ];
 
 function NavIcon({ name }: { name: string }) {
@@ -30,6 +32,18 @@ function NavIcon({ name }: { name: string }) {
       <>
         <rect x="3" y="5" width="18" height="14" rx="2" />
         <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+    sparkles: (
+      <>
+        <path d="m12 3 1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4L12 3Z" />
+        <path d="m19 15 .7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z" />
+      </>
+    ),
+    file: (
+      <>
+        <path d="M6 3h8l4 4v14H6z" />
+        <path d="M14 3v5h5M9 13h6M9 17h6" />
       </>
     ),
   };
@@ -75,7 +89,7 @@ export function Navbar() {
       </p>
       <nav
         aria-label="Main navigation"
-        className="grid w-full max-w-md grid-cols-3 gap-1.5 lg:flex lg:max-w-none lg:flex-col lg:gap-1"
+        className="grid w-full max-w-md grid-cols-5 gap-1 lg:flex lg:max-w-none lg:flex-col lg:gap-1"
       >
         {links.map((link) => {
           const isActive = pathname === link.href;

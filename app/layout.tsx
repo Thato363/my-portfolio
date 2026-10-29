@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thato Thobane — Portfolio",
+  title: "Thato Thobane — Developer Portfolio",
   description: "Portfolio of Thato Thobane, full-stack developer. React, Next.js, TypeScript and Tailwind CSS.",
 };
 

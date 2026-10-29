@@ -20,3 +20,18 @@ I am looking for full-time or contract **Frontend / Full-Stack Developer** roles
 
 This site is built with **Next.js, TypeScript and Tailwind CSS** and deployed on **Vercel**.
 
+## Data
+
+Project data is stored in **Supabase** (project `Thato_Thobane_Portfolio`) in the `public.projects` table. The app reads it with the `@supabase/supabase-js` client using the public anon key.
+
+Set these environment variables (locally in `.env.local`, and in your Vercel project settings):
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+Then install dependencies and run:
+
+```bash
+npm install
+npm run dev
+```
